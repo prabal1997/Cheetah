@@ -6,7 +6,7 @@
 
 //MEMBER CALLS
 	//DEFINITION CALLS
-	long long int _cheetah::call_counter=0;
+	_std_cheetah::uint64_t _cheetah::call_count=0;
 	//STATIC DEFINER CLASS CONSTRUCTOR CALLS
 
 //-----------------------------------------------------------------------------------//

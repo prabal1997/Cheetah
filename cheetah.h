@@ -1,11 +1,20 @@
 #ifndef CHEETAH_H
 #define CHEETAH_H
 
+//-----------------------------------------------------------------------------------//
+//END-USER ALIAS
+//-----------------------------------------------------------------------------------//
+//ALIAS FOR END-USER
+class _cheetah;
+typedef _cheetah lint; //now the user can simply call 'lint' to refer to '_cheetah' class
+//-----------------------------------------------------------------------------------//
+
 
 //-----------------------------------------------------------------------------------//
 //INCLUDE FILES
 //-----------------------------------------------------------------------------------//	
 #include"include_std_cheetah.h"
+#include"generic_functions_cheetah.h"
 //-----------------------------------------------------------------------------------//
 
 
@@ -24,7 +33,7 @@ class _cheetah{
 	private:
 		//STATIC
 			//PROTOTYPES
-			static long long int call_counter;
+			static _std_cheetah::uint64_t call_count;
 			//DEFINED
 		//CONST
 			//PROTOTYPES
@@ -32,14 +41,23 @@ class _cheetah{
 		//NORMAL
 			//PROTOTYPES
 			//DEFINED
+			_std_cheetah::uint64_t digits_before_decimal; 																		//counts the number of whole-number digits
+			_std_cheetah::uint64_t digits_after_decimal; 																		//counts the number of decimal digits
+			_std_cheetah::int8_t sign; 																							//'1' depicts positive, '0' means 0, and '-1' means negative
 
 	//FUNCTIONS
 	public:
 		//CONSTRUCTORS
 			//PROTOTYPES
 				//_CHEETAH DATA-TYPE
-					_cheetah(const _cheetah &input);
-					_cheetah();
+					_cheetah(const _cheetah &input):digits_before_decimal(input.digits_before_decimal), digits_after_decimal(input.digits_after_decimal),sign(input.sign)
+					{
+						call_count+=1;					
+					}
+					_cheetah():digits_before_decimal(0), digits_after_decimal(0), sign(0)
+					{
+						call_count+=1;
+					}
 				//FIXED-LENGTH DATA-TYPES
 					//_cheetah(_std_cheetah::int8_t input); 																		//equivalent to 'signed char'
 					//_cheetah(_std_cheetah::int16_t input); 																		//equivalent to 'signed short'
@@ -71,13 +89,28 @@ class _cheetah{
 					//_cheetah(_std_cheetah::uintptr_t input);  																	//equivalent to 'unsigned long int'
 					
 				//PRIMITIVE DATA-TYPES
-					_cheetah(signed char input);
+					_cheetah(signed char input):sign(_std_cheetah::get_sign(input)), digits_before_decimal(_std_cheetah::get_digits_before_decimal(input)), digits_after_decimal(0)
+					{
+						call_count+=1;
+					}
 					_cheetah(unsigned char input);
-					_cheetah(signed short input);
+					_cheetah(signed short input):sign(_std_cheetah::get_sign(input)), digits_before_decimal(_std_cheetah::get_digits_before_decimal(input)), digits_after_decimal(0)
+					{
+						call_count+=1;
+					}
 					_cheetah(unsigned short input);
-					_cheetah(signed int input);
-					_cheetah(signed long int input);
-					_cheetah(signed long long int input);
+					_cheetah(signed int input):sign(_std_cheetah::get_sign(input)), digits_before_decimal(_std_cheetah::get_digits_before_decimal(input)), digits_after_decimal(0)
+					{
+						call_count+=1;
+					}
+					_cheetah(signed long int input):sign(_std_cheetah::get_sign(input)), digits_before_decimal(_std_cheetah::get_digits_before_decimal(input)), digits_after_decimal(0)
+					{
+						call_count+=1;
+					}
+					_cheetah(signed long long int input):sign(_std_cheetah::get_sign(input)), digits_before_decimal(_std_cheetah::get_digits_before_decimal(input)), digits_after_decimal(0)
+					{
+						call_count+=1;
+					}
 					_cheetah(unsigned int input);
 					_cheetah(unsigned long int input);
 					_cheetah(unsigned long long int input);
@@ -115,16 +148,6 @@ class _cheetah{
 //OVERLOADING
 //-----------------------------------------------------------------------------------//
 #include"overloading_cheetah.h"
-//-----------------------------------------------------------------------------------//
-
-
-//-----------------------------------------------------------------------------------//
-//ALIAS DECLARATION
-//-----------------------------------------------------------------------------------//
-
-//ALIAS FOR END-USER
-typedef _cheetah lint;
-
 //-----------------------------------------------------------------------------------//
 
 

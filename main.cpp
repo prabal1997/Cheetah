@@ -5,6 +5,6 @@
 int main()
 {	
 	lint a;
-	std::cout<<sizeof(lint);
+	std::cout<<sizeof(a);
 	return (sizeof(lint));
 }
