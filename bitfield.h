@@ -66,26 +66,26 @@ public:
         int operator+(int input);
         friend int operator+(int input1, Bitfield input2);
         friend int& operator+=(int& input1, Bitfield input2);
-        Bitfield operator+=(Bitfield input);
-        Bitfield operator++();
-        Bitfield operator++(int);
+        int operator+=(Bitfield input);
+        int operator++();
+        int operator++(int);
         int operator-(Bitfield input);
         int operator-(int input);
         friend int operator-(int input1, Bitfield input2);
         friend int& operator-=(int& input1, Bitfield input2);
-        Bitfield operator-=(Bitfield input);
-        Bitfield operator--();
-        Bitfield operator--(int);  
+        int operator-=(Bitfield input);
+        int operator--();
+        int operator--(int);  
         int operator*(Bitfield input);
         int operator*(int input);
         friend int operator*(int input1, Bitfield input2);
         friend int& operator*=(int& input1, Bitfield input2);
-        Bitfield operator*=(Bitfield input);
+        int operator*=(Bitfield input);
         int operator/(Bitfield input);
         int operator/(int input);
         friend int operator/(int input1, Bitfield input2);
         friend int& operator/=(int& input1, Bitfield input2);
-        Bitfield operator/=(Bitfield input);
+        int operator/=(Bitfield input);
         
         //COMPARISON OPERATORS
         bool operator<(Bitfield input);

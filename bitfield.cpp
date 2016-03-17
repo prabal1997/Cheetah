@@ -26,22 +26,22 @@ using namespace Cheetah_functions;
             int Bitfield::operator+(int input) {
                 return (give_int(*this)+input);
             }
-            Bitfield Bitfield::operator+=(Bitfield input) {
+            int Bitfield::operator+=(Bitfield input) {
                 (*this)=give_bitfield(give_int(*this)+give_int(input));
-                return (*this);
+                return give_int(*this);
             }
-            Bitfield Bitfield::operator++() {
+            int Bitfield::operator++() {
                 (*this)=give_bitfield(1+give_int(*this));
-                return (*this);
+                return give_int(*this);
             }
-            Bitfield Bitfield::operator++(int) { //think about the edge cases!
+            int Bitfield::operator++(int) { //think about the edge cases!
                 if (give_int(*this)==255) {
-                    return (*this);    
+                    return give_int(*this);    
                 }
                 else
                 {
                     (*this)=give_bitfield(give_int(*this)+1);
-                    return give_bitfield(give_int(*this)-1);
+                    return (give_int(*this)-1);
                 }
             }
             int Bitfield::operator-(Bitfield input) {
@@ -50,21 +50,21 @@ using namespace Cheetah_functions;
             int Bitfield::operator-(int input) {
                 return (give_int(*this)-input);
             }
-            Bitfield Bitfield::operator-=(Bitfield input) {
+            int Bitfield::operator-=(Bitfield input) {
                 (*this)=give_bitfield(give_int(*this)-give_int(input));    
-                return (*this);
+                return give_int(*this);
             }
-            Bitfield Bitfield::operator--() {
+            int Bitfield::operator--() {
                 (*this)=give_bitfield(give_int(*this)-1);
-                return (*this);
+                return give_int(*this);
             }
-            Bitfield Bitfield::operator--(int) {
+            int Bitfield::operator--(int) {
                 if (give_int(*this)==0) {
-                    return (*this);
+                    return give_int(*this);
                 }
                 else {
                     (*this)=give_bitfield(give_int(*this)-1);
-                    return give_bitfield((give_int(*this)+1));
+                    return ((give_int(*this)+1));
                 }
             }
             int Bitfield::operator*(Bitfield input) {
@@ -73,9 +73,9 @@ using namespace Cheetah_functions;
             int Bitfield::operator*(int input) {
                 return (input*give_int(*this));
             }
-            Bitfield Bitfield::operator*=(Bitfield input) {
+            int Bitfield::operator*=(Bitfield input) {
                 (*this)=give_bitfield(give_int(*this)*give_int(input));
-                return (*this);
+                return give_int(*this);
             }
             int Bitfield::operator/(Bitfield input) {
                 //on DIVISION BY ZERO, the OUTPUT is 0 (EMPTY CELL)
@@ -89,13 +89,13 @@ using namespace Cheetah_functions;
             int Bitfield::operator/(int input) {
                 return (give_int(*this)/input);
             }
-            Bitfield Bitfield::operator/=(Bitfield input) {
+            int Bitfield::operator/=(Bitfield input) {
                 if (give_int(input)==0) {
-                    return (Bitfield(0));
+                    return give_int(Bitfield(0));
                 }   
                 else
                 {
-                    return give_bitfield(give_int(*this)/give_int(input));
+                    return (give_int(*this)/give_int(input));
                 }
             }
             //COMPARISON OPERATORS
